@@ -28,7 +28,7 @@ export default function Main() {
   useEffect(() => fetchData(uri),[])
 
   return (
-    <main>
+    <>
       <div className="container">
 
         <div className='buttonContainer'>
@@ -48,6 +48,6 @@ export default function Main() {
     </div>
           
       </div>
-    </main>
+    </>
   )
 }

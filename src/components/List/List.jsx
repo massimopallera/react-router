@@ -21,7 +21,7 @@ export default function List({post, index, uri, handleDelete, returnNewPosts, im
           <h3>{post.title}</h3>
         </div>
   
-        <div className="card-body d-flex flex-wrap">
+        <div className="card-body p-4 d-flex flex-wrap">
           <p>{post.content}</p>
 
           <div className="align_content_card">

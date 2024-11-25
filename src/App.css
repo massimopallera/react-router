@@ -11,21 +11,33 @@ img{
 
 body {
   font-family: Arial, sans-serif;
-  background-color: #101712 !important;
+  background-color: #555 !important;
   color: white;  
 }
 
 header{
+  background: #111 !important;
   padding: 1rem;
   text-align: center;
 }
 
 main{
-  margin-top: 2rem;
+  background: #333;
+  padding: 2rem 0;
   .container{
     margin: auto;
     width: 80%;
     max-width: 1200px;
+  }
+}
+
+a{
+  text-decoration: none  !important;
+  color: white !important;
+
+  &.active{
+    font-weight: bolder;
+
   }
 }
 
