@@ -1,19 +1,28 @@
 import './App.css'
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css'
 
-import Header from './components/Header'
-import Main from './components/Main'
+import PostList from './pages/PostList'
+import Home from './pages/Home'
+import ChiSiamo from './pages/ChiSiamo'
 
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+
+import DefaultLayout from './components/DefaultLayout'
 function App() {
 
 
   
 
   return (
-    <div className="bg-black text-white">
-      <Header />
-      <Main/>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route element={<DefaultLayout />}>
+          <Route path='/' element={<Home />}/>
+          <Route path='/posts' element={<PostList />}/>
+          <Route path='/chi-siamo' element={<ChiSiamo />}/>
+        </Route>
+      </Routes>
+    </BrowserRouter>
   )
 }
 
