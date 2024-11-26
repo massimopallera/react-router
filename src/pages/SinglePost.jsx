@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useParams, useNavigate, redirect } from "react-router-dom"
+import { useParams, useNavigate, Link } from "react-router-dom"
 
 export default function SinglePost({uri, resourcePath}) {
   const params = useParams()
@@ -14,9 +14,7 @@ export default function SinglePost({uri, resourcePath}) {
         // console.log(data);
         
         setNext(data?.next)
-        console.log(`${uri}/${next}`)
         setPrev(data?.prev)
-        console.log(`${uri}/${prev}`)
         setPost(data.data)
       })
      .catch(err => console.error(err))
@@ -27,6 +25,11 @@ export default function SinglePost({uri, resourcePath}) {
   useEffect(() => {
     fetchPost()
   },[])
+
+  console.log(`${uri}/${next}`)
+
+  console.log(`${uri}/${prev}`)
+
 
    return(
      <>
@@ -44,16 +47,24 @@ export default function SinglePost({uri, resourcePath}) {
          </div>
          
          <div className="d-flex justify-content-between p-3">
-           <button onClick={() => redirect(`${uri}/${prev}`)} className="btn btn-info">
-             <i className="bi bi-arrow-left"></i>
+           {prev != undefined ? (
              
-             <span className="ml_3">Post Precedente</span>
-           </button>
-           <button  onClick={() => redirect(`${uri}/${next}`)} className="btn btn-info">
+             <Link to={"/posts/" + prev} onClick={() => fetchPost(prev) }>
+              <i className="bi bi-arrow-left"></i>             
+              <span className="ml_3">Post Precedente</span>
+           </Link>
+          ) : null
+           }
+           
+
+           {next != undefined ? (
              
-             <span className="ml_3">Post Successivo</span>
-             <i className="bi bi-arrow-right"></i>
-           </button>
+             <Link to={"/posts/" + next} onClick={() => fetchPost(next)}>
+               <span className="ml_3">Post Successivo</span>
+               <i className="bi bi-arrow-right"></i>
+             </Link>
+           ) : null}
+           
           </div>
 
         </div>
