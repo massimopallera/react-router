@@ -1,5 +1,7 @@
 import './App.css'
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css'
+// In index.js o App.js
+import '../node_modules/bootstrap-icons/font/bootstrap-icons.css';
 
 import PostList from './pages/PostList'
 import Home from './pages/Home'

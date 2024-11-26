@@ -21,13 +21,13 @@ export default function List({post, index, uri, handleDelete, returnNewPosts, im
           <h3>{post.title}</h3>
         </div>
   
-        <div className="card-body p-4 d-flex flex-wrap">
-          <p>{post.content}</p>
+        <div className="card-body d-flex gap-3">
 
-          <div className="align_content_card">
-            <img src={imgSrc + post.image} alt="" />
-            <button type="button" className="btn btn-danger align-self-end" onClick={() => handleDelete(post.slug)}>Delete</button>
-          </div>
+            <img src={imgSrc + post.image} alt="" className=""/>
+          <p>{post.content}</p>
+          <button type="button" className="btn btn-danger align-self-end" onClick={() => handleDelete(post.slug)}>
+            <i className="bi bi-trash"></i>
+          </button>
         </div>
       
       </div>
