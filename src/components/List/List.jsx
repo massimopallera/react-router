@@ -14,7 +14,7 @@ export default function List({ post, index, uri, handleDelete, returnNewPosts, r
       .then(data => returnNewPosts(data.data))
   }
 
-  console.log(uri, resourcePath);
+  // console.log(uri, resourcePath);
   const navigate = useNavigate()
   
   

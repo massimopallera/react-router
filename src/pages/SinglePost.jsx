@@ -3,7 +3,7 @@ import { useParams, useNavigate, Link } from "react-router-dom"
 
 export default function SinglePost({uri, resourcePath}) {
   const params = useParams()
-  const [post, setPost] = useState(null)
+  const [post, setPost] = useState({image: ''})
   const [next, setNext] = useState(null)
   const [prev, setPrev] = useState(null)
 
@@ -26,9 +26,9 @@ export default function SinglePost({uri, resourcePath}) {
     fetchPost()
   },[])
 
-  console.log(`${uri}/${next}`)
+  // console.log(`${uri}/${next}`)
 
-  console.log(`${uri}/${prev}`)
+  // console.log(`${uri}/${prev}`)
 
 
    return(
@@ -40,16 +40,16 @@ export default function SinglePost({uri, resourcePath}) {
               <h2 className="">{post?.title}</h2>
            </div>
 
-            <div className="card-body d-flex flex-column gap-3">
-             <img src={resourcePath+post?.image} className="margin-auto" alt="..." />
+            <div className="card-body d-flex flex-column align-items-center gap-3">
+             <img src={resourcePath+post?.image} className="" alt="..." />
               <p className="card-text">{post?.content}</p>
             </div>
          </div>
          
-         <div className="d-flex justify-content-between p-3">
+         <div className="position-relative w-100 p-4">
            {prev != undefined ? (
              
-             <Link to={"/posts/" + prev} onClick={() => fetchPost(prev) }>
+             <Link className="btn btn-info text-dark left" to={"/posts/" + prev} onClick={() => fetchPost(prev) }>
               <i className="bi bi-arrow-left"></i>             
               <span className="ml_3">Post Precedente</span>
            </Link>
@@ -59,12 +59,12 @@ export default function SinglePost({uri, resourcePath}) {
 
            {next != undefined ? (
              
-             <Link to={"/posts/" + next} onClick={() => fetchPost(next)}>
+             <Link className="btn btn-info text-dark right" to={"/posts/" + next} onClick={() => fetchPost(next)}>
                <span className="ml_3">Post Successivo</span>
                <i className="bi bi-arrow-right"></i>
              </Link>
            ) : null}
-           
+
           </div>
 
         </div>

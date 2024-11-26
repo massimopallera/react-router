@@ -142,6 +142,23 @@ label{
   width: 100%;
 }
 
+.card{
+  height: 700px !important;
+}
+
+.left{
+  left: 0;
+}
+
+.right, .left{
+  bottom: 0;
+  position: absolute;
+}
+
+.right{
+  right: 0;
+}
+
 @media screen and (max-width: 768px){
   .align_content_card{
     justify-content: center !important;
