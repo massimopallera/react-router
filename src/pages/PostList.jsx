@@ -3,13 +3,10 @@ import { useState,useEffect } from 'react'
 import List from '../components/List/List'
 import FormComponent from '../components/Form/Form'
 
-const protocol = 'http:' 
-const domain = `localhost:3000` //insert domain
-const resourcePath = `${protocol}//${domain}/` //insert resource path
-const uri = `${protocol}//${domain}/posts`
 
 
-export default function PostList() {
+
+export default function PostList({uri, resourcePath}) {
 
 
   const [posts, setPosts] = useState([])

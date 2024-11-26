@@ -8,8 +8,7 @@ export default function List({post, index, uri, handleDelete, returnNewPosts, im
       method: 'DELETE',
     })
       .then(resp => resp.json())
-    .then(data => returnNewPosts(data.data))
-
+      .then(data => returnNewPosts(data.data))
   }
 
   
@@ -21,9 +20,8 @@ export default function List({post, index, uri, handleDelete, returnNewPosts, im
           <h3>{post.title}</h3>
         </div>
   
-        <div className="card-body d-flex gap-3">
-
-            <img src={imgSrc + post.image} alt="" className=""/>
+        <div className="card-body d-flex gap-3 flex-sm-wrap flex-xl-nowrap">
+          <img src={imgSrc + post.image} alt="" className="rounded"/>
           <p>{post.content}</p>
           <button type="button" className="btn btn-danger align-self-end" onClick={() => handleDelete(post.slug)}>
             <i className="bi bi-trash"></i>
