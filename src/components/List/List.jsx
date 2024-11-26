@@ -1,4 +1,7 @@
-export default function List({post, index, uri, handleDelete, returnNewPosts, imgSrc}) {
+import { useNavigate } from "react-router-dom"
+import SinglePost from "../../pages/SinglePost"
+
+export default function List({ post, index, uri, handleDelete, returnNewPosts, resourcePath }) {
   
   function handleDelete(slug) {
     
@@ -11,6 +14,9 @@ export default function List({post, index, uri, handleDelete, returnNewPosts, im
       .then(data => returnNewPosts(data.data))
   }
 
+  console.log(uri, resourcePath);
+  const navigate = useNavigate()
+  
   
   return (
     <div key={index} className="col align-self-stretch">
@@ -21,11 +27,17 @@ export default function List({post, index, uri, handleDelete, returnNewPosts, im
         </div>
   
         <div className="card-body d-flex gap-3 flex-sm-wrap flex-xl-nowrap">
-          <img src={imgSrc + post.image} alt="" className="rounded"/>
+          <img src={resourcePath + post.image} alt="" className="rounded"/>
           <p>{post.content}</p>
-          <button type="button" className="btn btn-danger align-self-end" onClick={() => handleDelete(post.slug)}>
+          <div className="d-flex align-items-end w-100 justify-content-end gap-3">
+
+          <button className="btn btn-info" onClick={() => navigate(post.slug)}>
+            <i className="bi bi-book"></i>
+          </button>
+          <button type="button" className="btn btn-danger" onClick={() => handleDelete(post.slug)}>
             <i className="bi bi-trash"></i>
           </button>
+          </div>
         </div>
       
       </div>

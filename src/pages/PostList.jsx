@@ -27,10 +27,9 @@ export default function PostList({uri, resourcePath}) {
 
   return (
     <>
-      <div className="container">
 
         <div className='buttonContainer'>
-          <button className='btn btn-light classeMia' popovertarget="offCanvas" onClick={handleOverlay} >Aggiungi Post</button>
+          <button className='btn btn-light' popovertarget="offCanvas" onClick={handleOverlay} >Aggiungi Post</button>
         </div>
 
         <div className="overlay">
@@ -39,10 +38,9 @@ export default function PostList({uri, resourcePath}) {
         </div>
 
         <div className="row row-cols-1 d-flex align-items-stretch g-5 my-3">
-          {posts.map((post, index) => <List post={post} index={index} key={index} uri={uri} imgSrc={resourcePath} returnNewPosts={(newPosts) => setPosts(newPosts)}></List>)}
+          {posts.map((post, index) => <List post={post} index={index} key={index} uri={uri} resourcePath={resourcePath} returnNewPosts={(newPosts) => setPosts(newPosts)}></List>)}
         </div>
           
-      </div>
     </>
   )
 }

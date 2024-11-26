@@ -26,7 +26,7 @@ function App() {
           <Route path='/' element={<Home />}/>
           <Route path='/posts' element={<PostList uri={uri} resourcePath={resourcePath} />}/>
           <Route path='/chi-siamo' element={<ChiSiamo />}/>
-          <Route path='/:slug' element={<SinglePost uri={uri} resourcePath={resourcePath}/>}/>
+          <Route path='posts/:slug' element={<SinglePost uri={uri} resourcePath={resourcePath}/>}/>
         </Route>
       </Routes>
     </BrowserRouter>

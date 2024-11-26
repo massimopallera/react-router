@@ -8,9 +8,11 @@ export default function DefaultLayout(){
     <div className="bg-black text-white">
        <Header />
 
-       <main>
-        <Outlet />
-       </main>
+         <main>
+            <div className="container">
+               <Outlet />
+            </div>
+         </main>
 
        <Footer />
     </div>
