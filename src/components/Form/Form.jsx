@@ -84,12 +84,13 @@ export default function Form({
   //ajax call function for tags and categories
   function fetchSet(uri, set, slug) {
     const url = `${uri}${slug}`
-    console.log(url);
+    // console.log(url);
     
 
     fetch(url)
       .then(resp => resp.json())
       .then(data => set(data[slug]))
+     .catch(err => console.error(err))
   }
 
   //get tags
